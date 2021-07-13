@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+#include <math.h> // sqrt 利用のため
+#include <stdlib.h> // 数値変換のため
 
 int myRoot(double x) // x の平方根を返す関数。x >= 0 ではないとき exit(1) とする。 
 {
   int y;
-  if( x <= 0 ){
+  if( x < 0 ){ // 0 の平方根は 0
     exit(1);
   }
   y = sqrt(x);
@@ -14,9 +14,9 @@ int myRoot(double x) // x の平方根を返す関数。x >= 0 ではないと�
 
 int main(void)
 {
-  int i;
-  double *x = (double *)malloc(sizeof(double) * 100);
-
+  int i = 0; // 初期値 0 を与える
+  double *x = (double *)malloc(sizeof(double) * 101); // 0~100 であるため 101
+ 
   while( i <= 100 ){
     x[i] = myRoot((double)i);
     i++;
